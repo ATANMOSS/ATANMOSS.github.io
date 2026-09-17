@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>我的第一篇博客文章</title>
+      <link href="/2026/09/17/%E6%92%AD%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%96%B9%E6%B3%95/"/>
+      <url>/2026/09/17/%E6%92%AD%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly主题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2026/09/17/hello-world/"/>
       <url>/2026/09/17/hello-world/</url>
