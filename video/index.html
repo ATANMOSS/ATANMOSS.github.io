@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/avatar.png">
 <meta property="article:published_time" content="2026-09-17T08:26:48.000Z">
-<meta property="article:modified_time" content="2026-09-18T03:57:46.518Z">
+<meta property="article:modified_time" content="2026-09-18T07:02:28.389Z">
 <meta property="article:author" content="ATANMOSS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/video/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.1.260810"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
@@ -286,7 +286,6 @@
 }
 
 /* ========== 图片弹窗轮播CSS ========== */
-/* ========== 图片弹窗轮播CSS ========== */
 .img-modal{
   position:fixed;
   inset:0;
@@ -343,6 +342,15 @@
   cursor:pointer;
   z-index:10000;
 }
+/* 图片弹窗 第X张 / 共X张 计数器 */
+.gallery-counter{
+  position: fixed;
+  bottom:24px;
+  right:24px;
+  color:#ffffff;
+  font-size:18px;
+  z-index:10000;
+}
 </style>
 <!-- 【切片器：标签筛选按钮区域】 -->
 <div class="tag-filter-wrap">
@@ -364,7 +372,12 @@
       "/img/平屋慢生活_1.1.webp",
       "/img/平屋慢生活_1.2.webp",
       "/img/平屋慢生活_1.3.webp",
-      "/img/平屋慢生活_1.4.webp"
+      "/img/平屋慢生活_1.4.webp",
+      "/img/平屋慢生活_1.5.webp",
+      "/img/平屋慢生活_1.6.webp",
+      "/img/平屋慢生活_1.7.webp",
+      "/img/平屋慢生活_1.8.webp",
+      "/img/平屋慢生活_1.9.webp"
     ]'>
       <img src="/img/平屋慢生活_1.1.webp" alt="平屋慢生活">
     </div>
@@ -378,7 +391,7 @@
     </div>
   </div>
 
-   <div class="movie-card" data-tags="日剧,剧情">
+  <div class="movie-card" data-tags="日剧,剧情">
     <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
       "/img/住宅区的两人_1.1.webp",
       "/img/住宅区的两人_1.2.webp"
@@ -393,7 +406,7 @@
     </div>
   </div>
 
-   <div class="movie-card" data-tags="英剧,剧情">
+  <div class="movie-card" data-tags="英剧,剧情">
     <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
       "/img/Sherlock Season_1.1.webp",
       "/img/Sherlock Season_1.2.webp",
@@ -406,11 +419,11 @@
       <a target="_blank" href="https://movie.douban.com/subject/3986493/">神探夏洛克 第一季</a>
     </div>
     <div class="movie-star">
-      <a href="/video/Sherlock Season_2.1/">★★★★☆</a>
+      <a href="/video/Sherlock Season_1.1/">★★★★☆</a>
     </div>
   </div>
 
-   <div class="movie-card" data-tags="英剧,剧情">
+  <div class="movie-card" data-tags="英剧,剧情">
     <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
       "/img/Sherlock Season_2.1.webp",
       "/img/Sherlock Season_2.2.webp",
@@ -427,24 +440,65 @@
       <a href="/video/Sherlock Season 2/">★★★★☆</a>
     </div>
   </div>
+
+  <div class="movie-card" data-tags="英剧,剧情">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/Sherlock Season_3.1.webp",
+      "/img/Sherlock Season_3.2.webp",
+      "/img/Sherlock Season_3.3.webp",
+      "/img/Sherlock Season_3.4.webp",
+      "/img/Sherlock Season_3.5.webp"
+    ]'>
+      <img src="/img/Sherlock Season_3.2.webp" alt="Sherlock Season 2">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://movie.douban.com/subject/10455629/">神探夏洛克 第三季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/Sherlock Season 3/">★★★★☆</a>
+    </div>
+  </div>
+
+  <div class="movie-card" data-tags="英剧,剧情">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/Sherlock Season_4.1.webp",
+      "/img/Sherlock Season_4.2.webp",
+      "/img/Sherlock Season_4.3.webp",
+      "/img/Sherlock Season_4.4.webp",
+      "/img/Sherlock Season_4.5.webp",
+      "/img/Sherlock Season_4.6.webp",
+      "/img/Sherlock Season_4.7.webp",
+      "/img/Sherlock Season_4.8.webp"
+    ]'>
+      <img src="/img/Sherlock Season_4.1.webp" alt="Sherlock Season 2">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://movie.douban.com/subject/25750923/">神探夏洛克 第四季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/Sherlock Season 4/">★★★★☆</a>
+    </div>
+  </div>
 </div>
-</div>
+
 
 <div class="section-wrap">
 <h2>▶️ 在看</h2>
 <div class="movie-card-wrap">
-  <div class="movie-card" data-tags="治愈">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='["图片链接"]'>
-      <img src="图片链接" alt="影片名称3">
+  <div class="movie-card" data-tags="日剧,剧情">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/吃饱睡足等幸福_1.1.webp",
+      "/img/吃饱睡足等幸福_1.2.webp"
+    ]'>
+      <img src="/img/吃饱睡足等幸福_1.1.webp" alt="吃饱睡足等幸福">
     </div>
     <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/影片ID/">影片名称3</a>
+      <a target="_blank" href="https://movie.douban.com/subject/37113482/">吃饱睡足等幸福</a>
     </div>
     <div class="movie-star">
-      <a href="#">★★★★☆</a>
+      <a href="/video/chibao-shuizu-dengxingfu/">★★★★☆</a>
     </div>
   </div>
-</div>
 </div>
 
 <div class="section-wrap">
@@ -464,9 +518,10 @@
 </div>
 </div>
 
-<!-- ========== 弹窗轮播HTML结构 ========== -->
+<!-- ========== 弹窗轮播HTML结构，新增计数器div ========== -->
 <div class="img-modal">
   <div class="modal-inner">
+    <div class="gallery-counter"></div>
     <button class="close-modal" onclick="closeGallery()">×</button>
     <button class="modal-btn prev" onclick="prevImg()">‹</button>
     <img class="modal-img" src="" alt="">
@@ -480,6 +535,12 @@ let galleryList = [];
 let currentIndex = 0;
 const modal = document.querySelector('.img-modal');
 const modalImg = document.querySelector('.modal-img');
+const counterDom = document.querySelector('.gallery-counter');
+
+// 更新左下角文字：第X张 / 共X张
+function updateCounter(){
+  counterDom.innerText = `第${currentIndex+1}张 / 共${galleryList.length}张`;
+}
 
 // 打开图库
 function openGallery(el){
@@ -487,6 +548,7 @@ function openGallery(el){
   currentIndex = 0;
   loadImage(galleryList[currentIndex]);
   modal.classList.add('show');
+  updateCounter(); // 打开弹窗立刻更新数字
 }
 
 // 加载图片，JS控制缩放
@@ -507,11 +569,13 @@ function loadImage(src){
 function prevImg(){
   currentIndex = currentIndex -1 <0 ? galleryList.length-1 : currentIndex-1;
   loadImage(galleryList[currentIndex]);
+  updateCounter(); // 切换图片更新数字
 }
 // 下一张
 function nextImg(){
   currentIndex = currentIndex +1 >= galleryList.length ? 0 : currentIndex+1;
   loadImage(galleryList[currentIndex]);
+  updateCounter(); // 切换图片更新数字
 }
 // 关闭
 function closeGallery(){
