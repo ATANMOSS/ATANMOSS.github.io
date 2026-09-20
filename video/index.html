@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>🎬 影视清单 | ATANMOSS</title><meta name="author" content="ATANMOSS"><meta name="copyright" content="ATANMOSS"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="&#x2F;* 加宽当前页面容器（针对本页面无侧边栏） *&#x2F; .layout-hide-aside #page {   max-width: 1100px !important;   width: 92% !important; } &#x2F;* 网格卡片样式 *&#x2F; .movie-card-wrap{   display: grid;   grid-template-columns: repeat(auto-fi">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>🎬 影视清单 | ATANMOSS</title><meta name="author" content="ATANMOSS"><meta name="copyright" content="ATANMOSS"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* 加宽当前页面容器（针对本页面无侧边栏） *&#x2F; .layout-hide-aside #page {   max-width: 1100px !important;   width: 92% !important; }  &#x2F;* 左侧导航：固定悬浮，放到毛玻璃容器外面 *&#x2F; .left-nav{   position: fixed;   left: 40px;   top: 220px;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="🎬 影视清单">
 <meta property="og:url" content="http://example.com/video/index.html">
 <meta property="og:site_name" content="ATANMOSS">
-<meta property="og:description" content="&#x2F;* 加宽当前页面容器（针对本页面无侧边栏） *&#x2F; .layout-hide-aside #page {   max-width: 1100px !important;   width: 92% !important; } &#x2F;* 网格卡片样式 *&#x2F; .movie-card-wrap{   display: grid;   grid-template-columns: repeat(auto-fi">
+<meta property="og:description" content="&#x2F;* 加宽当前页面容器（针对本页面无侧边栏） *&#x2F; .layout-hide-aside #page {   max-width: 1100px !important;   width: 92% !important; }  &#x2F;* 左侧导航：固定悬浮，放到毛玻璃容器外面 *&#x2F; .left-nav{   position: fixed;   left: 40px;   top: 220px;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/avatar.png">
 <meta property="article:published_time" content="2026-09-17T08:26:48.000Z">
-<meta property="article:modified_time" content="2026-09-20T02:05:36.572Z">
+<meta property="article:modified_time" content="2026-09-20T09:37:56.940Z">
 <meta property="article:author" content="ATANMOSS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/video/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.1.260810"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
@@ -114,13 +114,13 @@
       const activateDarkMode = () => {
         document.documentElement.dataset.theme = 'dark'
         if (metaThemeColor !== null) {
-          metaThemeColor.setAttribute('content', '#1a1f1d')
+          metaThemeColor.setAttribute('content', 'undefined')
         }
       }
       const activateLightMode = () => {
         document.documentElement.dataset.theme = 'light'
         if (metaThemeColor !== null) {
-          metaThemeColor.setAttribute('content', 'ffffff')
+          metaThemeColor.setAttribute('content', 'undefined')
         }
       }
 
@@ -218,23 +218,29 @@
 }
 /* before遮罩层保留元素，背景透明 */
 #page-header.post-bg::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
+
+
+/* 页面卡片 #page 背景透明度 */
+#page {
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* 首页文章卡片背景，修改最后数字调节透明度 */
 #recent-posts .recent-post-item {
-  background: rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.85) !important;
   /* 完全透明就改成 rgba(255,255,255,0) */
 }
 
 /* 侧边栏全部卡片容器背景，修改末尾数字调节透明度 */
 #aside-content .card-widget {
-  background: rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0.85) !important;
 }
 
 /* 页脚footer背景【修复版】，修改末尾数字调节透明度 */
 #footer {
-  background: rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 #footer .footer-other {
   background: transparent !important;
@@ -246,7 +252,7 @@
 /* 👇这一行就是控制头部遮罩，直接修改rgba里面的数字 */
 /* 普通页面 */
 #page-header::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 /* 文章详情页 */
 #page-header.post-bg {
@@ -254,27 +260,27 @@
 }
 /* 文章详情页的头部遮罩 */
 #page-header.post-bg::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 
 /* =========新增代码，清除#page白色底色（书籍/影视清单页面）========= */
 main#content-inner.layout.hide-aside div#page {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(39, 136, 202,0.15) !important;
 }
 
 .movie-card{
 text-align: center;
 padding-bottom:12px;
 /* 卡片单独半透底色 */
-background:rgba(240, 246, 248, 0.35);
+background:rgba(245, 247, 250, 0.7);
 border-radius:8px;
 padding:8px;
 }
 
 /* =========文章post页面：#post 半透毛玻璃========= */
 main#content-inner.layout div#post {
-  background: rgba(255,255,255,0.45) !important;
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.85) !important;
+  /* backdrop-filter: blur(8px); */
   -webkit-backdrop-filter: blur(8px);
   border-radius:12px;
 }
@@ -291,13 +297,100 @@ main#content-inner.layout div#post {
   border: 1px solid #6096ba !important;
   border-radius:8px;
 }
+
+
+/* =========文章正文文字========= */
+#post #post-content p,
+#post #post-content li {
+  color: #0f2440 !important; /* 正文深色文字，适配半透白卡片 */
+}
+#post #post-content h1,#post #post-content h2,#post #post-content h3 {
+  color: #153058 !important;
+}
+
+/* =========版权声明框文字（截图上方那块版权区域）========= */
+#post .post-copyright .post-copyright-meta {
+  color: #153058 !important;
+}
+#post .post-copyright .post-copyright-info a {
+  color: #2057a0 !important;
+}
+#post .post-copyright .post-copyright-info {
+  color: #22406b !important;
+}
+
+/* =========上一篇/下一篇 模块文字========= */
+#post .pagination-post .prev-post .post-title,
+#post .pagination-post .next-post .post-title {
+  color: #ffffff !important;
+}
+#post .pagination-post .prev-post .label,
+#post .pagination-post .next-post .label {
+  color: #c8ddff !important;
+}
+
+/* =========相关推荐模块文字========= */
+#post .relatedPosts .relatedPosts-head {
+  color: #153058 !important;
+}
+#post .relatedPosts .related-post-card .post-title {
+  color: #ffffff !important;
+}
+#post .relatedPosts .related-post-card .post-date {
+  color: #d0e0ff !important;
+}
+
+/* =========文章顶部元信息（发布时间、分类、阅读时长）========= */
+#post-meta > div {
+  color: #ffffff !important;
+}
+#post-meta a {
+  color: #ffffff !important;
+}
 </style>
-<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/my3.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">🎬 影视清单</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/cloud2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">🎬 影视清单</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
 /* 加宽当前页面容器（针对本页面无侧边栏） */
 .layout-hide-aside #page {
   max-width: 1100px !important;
   width: 92% !important;
 }
+
+/* 左侧导航：固定悬浮，放到毛玻璃容器外面 */
+.left-nav{
+  position: fixed;
+  left: 40px;
+  top: 220px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:99;
+}
+.nav-item{
+  padding:12px 16px;
+  border-radius:10px;
+  border:none;
+  background: rgba(245, 247, 250, 0.62);
+  color:#2b303a;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.25s;
+  text-align:left;
+}
+.nav-item.active{
+  background-color: #346b9c;
+  color:#fff;
+}
+.nav-item:hover{
+  background: rgba(220,225,232,0.7);
+}
+
+/* 主体内容容器，让出左侧位置，不被导航遮挡 */
+.wrap-container{
+  display: block;
+  margin-left: 140px;
+  margin-top:20px;
+}
+
 /* 网格卡片样式 */
 .movie-card-wrap{
   display: grid;
@@ -317,21 +410,24 @@ main#content-inner.layout div#post {
 .movie-card{
   text-align:center;
   padding-bottom:12px;
+  background: rgba(245, 247, 250, 0.62);
+  border-radius:8px;
+  padding:8px;
 }
 .movie-img-box{
   cursor: pointer;
 }
 .movie-card img{
   width:100%;
-  aspect-ratio: 2 / 3; /* 默认：影视竖向海报 */
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius:8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
   transition: all 0.25s ease;
 }
-/* 新增：综艺横向卡片 */
+/* 综艺横向卡片 */
 .movie-card.is-horiz img{
-  aspect-ratio: 16 / 9; /* 综艺横向16比9 */
+  aspect-ratio: 16 / 9;
 }
 .movie-card img:hover{
   transform: scale(1.04);
@@ -340,14 +436,14 @@ main#content-inner.layout div#post {
 
 /* 片名样式 */
 .movie-name{
-  margin:10px 0 6px;
+  margin:16px 0 6px;
 }
 .movie-name a{
   text-decoration: none;
-  color: #333;
+  color: #2b303a;
 }
 .movie-name a:hover{
-  color:#42b983;
+  color:#346b9c;
 }
 /* 评分星星 */
 .movie-star{
@@ -360,45 +456,24 @@ main#content-inner.layout div#post {
 .movie-star a:hover{
   opacity:0.7;
 }
-/* 筛选切片器容器 */
-.tag-filter-wrap {
-  margin: 20px 0;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-/* 标签按钮，类似切片器 */
-.tag-filter-btn {
-  padding: 8px 16px;
-  border: 1px solid #385747;
-  background-color: #f4f7f5;
-  color: #2c4438;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-/* 选中激活样式 */
-.tag-filter-btn.active {
-  background-color: #385747;
-  color: #fff;
-}
-.tag-filter-btn:hover {
-  background-color: #dce8e2;
-}
-/* 隐藏匹配不到标签的卡片 */
-.movie-card.hide-card {
-  display: none !important;
-}
-/* 当一组卡片全部隐藏时，隐藏整个板块标题+容器 */
-.section-wrap.hide-section h2{
+
+/* 板块隐藏显示控制 */
+.section-wrap{
   display:none;
 }
-.section-wrap.hide-section .movie-card-wrap{
-  display:none;
+.section-wrap.show-section{
+  display:block;
 }
+
 .section-wrap h2{
-  font-size:18px;
+  font-size:20px;
   margin:20px 0 8px 0;
+  color:#ffffff;
+}
+.section-wrap h3{
+  font-size:16px;
+  margin:12px 0 6px 0;
+  color:#ffffff;
 }
 
 /* ========== 图片弹窗轮播CSS ========== */
@@ -467,7 +542,7 @@ main#content-inner.layout div#post {
   font-size:18px;
   z-index:10000;
 }
-/* ========== 影视清单页面毛玻璃【新】 ========== */
+/* ========== 影视清单页面毛玻璃 ========== */
 .layout-hide-aside#content-inner {
   background: rgba(255,255,255,0.6) !important;
   backdrop-filter: blur(10px) !important;
@@ -481,268 +556,247 @@ main#content-inner.layout div#post {
   background: transparent !important;
 }
 </style>
-<!-- 【切片器：标签筛选按钮区域】 -->
-<div class="tag-filter-wrap">
-  <button class="tag-filter-btn active" data-tag="all">全部</button>
-  <button class="tag-filter-btn" data-tag="治愈">治愈</button>
-  <button class="tag-filter-btn" data-tag="日剧">日剧</button>
-  <button class="tag-filter-btn" data-tag="剧情">剧情</button>
-  <button class="tag-filter-btn" data-tag="英剧">英剧</button>
-  <!-- 新增综艺筛选按钮 -->
-  <button class="tag-filter-btn" data-tag="综艺">综艺</button>
+
+<!-- 【左侧导航 放到毛玻璃容器外面】固定悬浮在背景 -->
+<div class="left-nav">
+  <button class="nav-item active" data-target="watched">✅ 已看完</button>
+  <button class="nav-item" data-target="watching">▶️ 在看</button>
+  <button class="nav-item" data-target="wish">📌 想看</button>
 </div>
 
-
-<div class="section-wrap">
-<h2>✅ 已看完</h2>
-<h3>剧集</h3>
-<div class="movie-card-wrap">
-  <!-- 卡片增加 data-tags 标签，多个英文逗号分隔 -->
-  <div class="movie-card" data-tags="治愈,日剧">
-    <!-- 图片区域：点击打开轮播，data-imgs数组存放多张图片 -->
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/平屋慢生活_1.1.webp",
-      "/img/平屋慢生活_1.2.webp",
-      "/img/平屋慢生活_1.3.webp",
-      "/img/平屋慢生活_1.4.webp",
-      "/img/平屋慢生活_1.5.webp",
-      "/img/平屋慢生活_1.6.webp",
-      "/img/平屋慢生活_1.7.webp",
-      "/img/平屋慢生活_1.8.webp",
-      "/img/平屋慢生活_1.9.webp"
-    ]'>
-      <img src="/img/平屋慢生活_1.1.webp" alt="平屋慢生活">
+<!-- 主体卡片内容 -->
+<div class="wrap-container">
+  <div class="content-main">
+    <div id="watched" class="section-wrap show-section">
+      <h2>✅ 已看完</h2>
+      <h3>剧集</h3>
+      <div class="movie-card-wrap">
+        <div class="movie-card" data-tags="治愈,日剧">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/平屋慢生活_1.1.webp",
+            "/img/平屋慢生活_1.2.webp",
+            "/img/平屋慢生活_1.3.webp",
+            "/img/平屋慢生活_1.4.webp",
+            "/img/平屋慢生活_1.5.webp",
+            "/img/平屋慢生活_1.6.webp",
+            "/img/平屋慢生活_1.7.webp",
+            "/img/平屋慢生活_1.8.webp",
+            "/img/平屋慢生活_1.9.webp"
+          ]'>
+            <img src="/img/平屋慢生活_1.1.webp" alt="平屋慢生活">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/37414697/">平屋慢生活</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/pingwu-man-shenghuo/">★★★★★</a>
+          </div>
+        </div>
+        <div class="movie-card" data-tags="日剧,剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/住宅区的两人_1.1.webp",
+            "/img/住宅区的两人_1.2.webp"
+          ]'>
+            <img src="/img/住宅区的两人_1.1.webp" alt="住宅区的两人">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/36902276/">住宅区的两人</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/zhuzhaiqu-de-liangren/">★★★★☆</a>
+          </div>
+        </div>
+        <div class="movie-card" data-tags="英剧,剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/Sherlock Season_1.1.webp",
+            "/img/Sherlock Season_1.2.webp",
+            "/img/Sherlock Season_1.3.webp",
+            "/img/Sherlock Season_1.4.webp"
+          ]'>
+            <img src="/img/Sherlock Season_1.1.webp" alt="Sherlock Season 1">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/3986493/">神探夏洛克 第一季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/Sherlock Season_1.1/">★★★★☆</a>
+          </div>
+        </div>
+        <div class="movie-card" data-tags="英剧,剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/Sherlock Season_2.1.webp",
+            "/img/Sherlock Season_2.2.webp",
+            "/img/Sherlock Season_2.3.webp",
+            "/img/Sherlock Season_2.4.webp",
+            "/img/Sherlock Season_2.5.webp"
+          ]'>
+            <img src="/img/Sherlock Season_2.1.webp" alt="Sherlock Season 2">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/6522269/">神探夏洛克 第二季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/Sherlock Season 2/">★★★★☆</a>
+          </div>
+        </div>
+        <div class="movie-card" data-tags="英剧,剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/Sherlock Season_3.1.webp",
+            "/img/Sherlock Season_3.2.webp",
+            "/img/Sherlock Season_3.3.webp",
+            "/img/Sherlock Season_3.4.webp",
+            "/img/Sherlock Season_3.5.webp"
+          ]'>
+            <img src="/img/Sherlock Season_3.2.webp" alt="Sherlock Season 3">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/10455629/">神探夏洛克 第三季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/Sherlock Season 3/">★★★★☆</a>
+          </div>
+        </div>
+        <div class="movie-card" data-tags="英剧,剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/Sherlock Season_4.1.webp",
+            "/img/Sherlock Season_4.2.webp",
+            "/img/Sherlock Season_4.3.webp",
+            "/img/Sherlock Season_4.4.webp",
+            "/img/Sherlock Season_4.5.webp",
+            "/img/Sherlock Season_4.6.webp",
+            "/img/Sherlock Season_4.7.webp",
+            "/img/Sherlock Season_4.8.webp"
+          ]'>
+            <img src="/img/Sherlock Season_4.1.webp" alt="Sherlock Season 4">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/25750923/">神探夏洛克 第四季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/Sherlock Season 4/">★★★★☆</a>
+          </div>
+        </div>
+      </div>
+      <h3>综艺</h3>
+      <div class="movie-card-wrap horiz-wrap">
+        <div class="movie-card is-horiz" data-tags="综艺">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/xiayigeshishei_1.1.jpg"
+          ]'>
+            <img src="/img/xiayigeshishei_1.1.jpg" alt="下一个是谁 第一季">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://www.bilibili.com/video/BV1CQ4y1f7dA/">下一个是谁 第一季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/xiayigeshishei_1/">★★★★★</a>
+          </div>
+        </div>
+        <div class="movie-card is-horiz" data-tags="综艺">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/xiayigeshishei_2.1.jpg"
+          ]'>
+            <img src="/img/xiayigeshishei_2.1.jpg" alt="下一个是谁 第二季">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://www.bilibili.com/video/BV1eL4y1z7ZY/">下一个是谁 第二季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/xiayigeshishei_2/">★★★★★</a>
+          </div>
+        </div>
+        <div class="movie-card is-horiz" data-tags="综艺">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/xiayigeshishei_3.1.jpg"
+          ]'>
+            <img src="/img/xiayigeshishei_3.1.jpg" alt="下一个是谁 第三季">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://www.bilibili.com/video/BV1QT4y1e79k/">下一个是谁 第三季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/xiayigeshishei_3/">★★★★★</a>
+          </div>
+        </div>
+        <div class="movie-card is-horiz" data-tags="综艺">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/xiayigeshishei_4.1.jpg"
+          ]'>
+            <img src="/img/xiayigeshishei_4.1.jpg" alt="下一个是谁 第四季">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://www.bilibili.com/video/BV128411G7by/">下一个是谁 第四季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/xiayigeshishei_4/">★★★★★</a>
+          </div>
+        </div>
+        <div class="movie-card is-horiz" data-tags="综艺">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/xiayigeshishei_5.1.jpg"
+          ]'>
+            <img src="/img/xiayigeshishei_5.1.jpg" alt="下一个是谁 第五季">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://www.bilibili.com/video/BV1QfgNzCEcm/">下一个是谁 第五季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/xiayigeshishei_5/">★★★★★</a>
+          </div>
+        </div>
+        <div class="movie-card is-horiz" data-tags="综艺">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/xiayigeshishei_6.1.jpg"
+          ]'>
+            <img src="/img/xiayigeshishei_6.1.jpg" alt="下一个是谁 第六季">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://www.bilibili.com/video/BV1QfgNzCEcm/">下一个是谁 第六季</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/xiayigeshishei_6/">★★★★★</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- 片名：点击跳豆瓣，新标签打开 -->
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/37414697/">平屋慢生活</a>
+    <div id="watching" class="section-wrap">
+      <h2>▶️ 在看</h2>
+      <div class="movie-card-wrap">
+        <div class="movie-card" data-tags="日剧,剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+            "/img/吃饱睡足等幸福_1.1.webp",
+            "/img/吃饱睡足等幸福_1.2.webp"
+          ]'>
+            <img src="/img/吃饱睡足等幸福_1.1.webp" alt="吃饱睡足等幸福">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/37113482/">吃饱睡足等幸福</a>
+          </div>
+          <div class="movie-star">
+            <a href="/video/chibao-shuizu-dengxingfu/">★★★★☆</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- 星星：点击跳你的笔记页面 -->
-    <div class="movie-star">
-      <a href="/video/pingwu-man-shenghuo/">★★★★★</a>
-    </div>
-  </div>
-
-  <div class="movie-card" data-tags="日剧,剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/住宅区的两人_1.1.webp",
-      "/img/住宅区的两人_1.2.webp"
-    ]'>
-      <img src="/img/住宅区的两人_1.1.webp" alt="住宅区的两人">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/36902276/">住宅区的两人</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/zhuzhaiqu-de-liangren/">★★★★☆</a>
-    </div>
-  </div>
-
-  <div class="movie-card" data-tags="英剧,剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/Sherlock Season_1.1.webp",
-      "/img/Sherlock Season_1.2.webp",
-      "/img/Sherlock Season_1.3.webp",
-      "/img/Sherlock Season_1.4.webp"
-    ]'>
-      <img src="/img/Sherlock Season_1.1.webp" alt="Sherlock Season 1">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/3986493/">神探夏洛克 第一季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/Sherlock Season_1.1/">★★★★☆</a>
-    </div>
-  </div>
-
-  <div class="movie-card" data-tags="英剧,剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/Sherlock Season_2.1.webp",
-      "/img/Sherlock Season_2.2.webp",
-      "/img/Sherlock Season_2.3.webp",
-      "/img/Sherlock Season_2.4.webp",
-      "/img/Sherlock Season_2.5.webp"
-    ]'>
-      <img src="/img/Sherlock Season_2.1.webp" alt="Sherlock Season 2">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/6522269/">神探夏洛克 第二季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/Sherlock Season 2/">★★★★☆</a>
-    </div>
-  </div>
-
-  <div class="movie-card" data-tags="英剧,剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/Sherlock Season_3.1.webp",
-      "/img/Sherlock Season_3.2.webp",
-      "/img/Sherlock Season_3.3.webp",
-      "/img/Sherlock Season_3.4.webp",
-      "/img/Sherlock Season_3.5.webp"
-    ]'>
-      <img src="/img/Sherlock Season_3.2.webp" alt="Sherlock Season 2">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/10455629/">神探夏洛克 第三季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/Sherlock Season 3/">★★★★☆</a>
-    </div>
-  </div>
-
-  <div class="movie-card" data-tags="英剧,剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/Sherlock Season_4.1.webp",
-      "/img/Sherlock Season_4.2.webp",
-      "/img/Sherlock Season_4.3.webp",
-      "/img/Sherlock Season_4.4.webp",
-      "/img/Sherlock Season_4.5.webp",
-      "/img/Sherlock Season_4.6.webp",
-      "/img/Sherlock Season_4.7.webp",
-      "/img/Sherlock Season_4.8.webp"
-    ]'>
-      <img src="/img/Sherlock Season_4.1.webp" alt="Sherlock Season 2">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/25750923/">神探夏洛克 第四季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/Sherlock Season 4/">★★★★☆</a>
-    </div>
-  </div>
-</div>
-
-<!-- 新增综艺板块，独立横向网格 -->
-<h3>综艺</h3>
-<div class="movie-card-wrap horiz-wrap">
-  <div class="movie-card is-horiz" data-tags="综艺">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/xiayigeshishei_1.1.jpg"
-    ]'>
-      <img src="/img/xiayigeshishei_1.1.jpg" alt="下一个是谁 第一季">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://www.bilibili.com/video/BV1CQ4y1f7dA/">下一个是谁 第一季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/xiayigeshishei_1/">★★★★★</a>
-    </div>
-  </div>
-
-  <div class="movie-card is-horiz" data-tags="综艺">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/xiayigeshishei_2.1.jpg"
-    ]'>
-      <img src="/img/xiayigeshishei_2.1.jpg" alt="下一个是谁 第二季">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://www.bilibili.com/video/BV1eL4y1z7ZY/">下一个是谁 第二季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/xiayigeshishei_2/">★★★★★</a>
-    </div>
-  </div>
-
-  <div class="movie-card is-horiz" data-tags="综艺">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/xiayigeshishei_3.1.jpg"
-    ]'>
-      <img src="/img/xiayigeshishei_3.1.jpg" alt="下一个是谁 第三季">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://www.bilibili.com/video/BV1QT4y1e79k/">下一个是谁 第三季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/xiayigeshishei_3/">★★★★★</a>
-    </div>
-  </div>
-
-  <div class="movie-card is-horiz" data-tags="综艺">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/xiayigeshishei_4.1.jpg"
-    ]'>
-      <img src="/img/xiayigeshishei_4.1.jpg" alt="下一个是谁 第四季">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://www.bilibili.com/video/BV128411G7by/">下一个是谁 第四季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/xiayigeshishei_4/">★★★★★</a>
-    </div>
-  </div>
-
-  <div class="movie-card is-horiz" data-tags="综艺">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/xiayigeshishei_5.1.jpg"
-    ]'>
-      <img src="/img/xiayigeshishei_5.1.jpg" alt="下一个是谁 第五季">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://www.bilibili.com/video/BV1QfgNzCEcm/">下一个是谁 第五季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/xiayigeshishei_5/">★★★★★</a>
-    </div>
-  </div>
-
-  <div class="movie-card is-horiz" data-tags="综艺">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/xiayigeshishei_6.1.jpg"
-    ]'>
-      <img src="/img/xiayigeshishei_6.1.jpg" alt="下一个是谁 第六季">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://www.bilibili.com/video/BV1QfgNzCEcm/">下一个是谁 第六季</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/xiayigeshishei_6/">★★★★★</a>
-    </div>
-  </div>
-
-</div>
-
-
-</div>
-
-
-<div class="section-wrap">
-<h2>▶️ 在看</h2>
-<div class="movie-card-wrap">
-  <div class="movie-card" data-tags="日剧,剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
-      "/img/吃饱睡足等幸福_1.1.webp",
-      "/img/吃饱睡足等幸福_1.2.webp"
-    ]'>
-      <img src="/img/吃饱睡足等幸福_1.1.webp" alt="吃饱睡足等幸福">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/37113482/">吃饱睡足等幸福</a>
-    </div>
-    <div class="movie-star">
-      <a href="/video/chibao-shuizu-dengxingfu/">★★★★☆</a>
+    <div id="wish" class="section-wrap">
+      <h2>📌 想看</h2>
+      <div class="movie-card-wrap">
+        <div class="movie-card" data-tags="剧情">
+          <div class="movie-img-box" onclick="openGallery(this)" data-imgs='["图片链接"]'>
+            <img src="图片链接" alt="影片名称4">
+          </div>
+          <div class="movie-name">
+            <a target="_blank" href="https://movie.douban.com/subject/影片ID/">影片名称4</a>
+          </div>
+          <div class="movie-star">
+            <a href="#">★★★★☆</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="section-wrap">
-<h2>📌 想看</h2>
-<div class="movie-card-wrap">
-  <div class="movie-card" data-tags="剧情">
-    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='["图片链接"]'>
-      <img src="图片链接" alt="影片名称4">
-    </div>
-    <div class="movie-name">
-      <a target="_blank" href="https://movie.douban.com/subject/影片ID/">影片名称4</a>
-    </div>
-    <div class="movie-star">
-      <a href="#">★★★★☆</a>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ========== 弹窗轮播HTML结构，新增计数器div ========== -->
 <div class="img-modal">
   <div class="modal-inner">
     <div class="gallery-counter"></div>
@@ -754,43 +808,34 @@ main#content-inner.layout div#post {
 </div>
 
 <script>
-// 图片轮播JS
 let galleryList = [];
 let currentIndex = 0;
 const modal = document.querySelector('.img-modal');
 const modalImg = document.querySelector('.modal-img');
 const counterDom = document.querySelector('.gallery-counter');
 
-// 更新左下角文字：第X张 / 共X张
 function updateCounter(){
   counterDom.innerText = `第${currentIndex+1}张 / 共${galleryList.length}张`;
 }
 
-// 打开图库
 function openGallery(el){
   galleryList = JSON.parse(el.dataset.imgs);
   currentIndex = 0;
   loadImage(galleryList[currentIndex]);
   modal.classList.add('show');
-  updateCounter(); // 打开弹窗立刻更新数字
+  updateCounter();
 }
 
-// 加载图片，JS控制缩放
-// 加载图片，JS控制缩放（限制最大宽高）
 function loadImage(src){
   const img = new Image();
   img.src = src;
   img.onload = function(){
-    // 最大高度：屏幕85%；最大宽度：800px
     const maxH = window.innerHeight * 0.85;
     const maxW = 800;
-    // 计算缩放比例
     let scale = 1;
-    // 高度缩放
     if(img.height > maxH){
       scale = maxH / img.height;
     }
-    // 如果按高度缩放后宽度依然超过maxW，再用宽度限制
     if(img.width * scale > maxW){
       scale = maxW / img.width;
     }
@@ -800,27 +845,22 @@ function loadImage(src){
   }
 }
 
-// 上一张
 function prevImg(){
   currentIndex = currentIndex -1 <0 ? galleryList.length-1 : currentIndex-1;
   loadImage(galleryList[currentIndex]);
-  updateCounter(); // 切换图片更新数字
+  updateCounter();
 }
-// 下一张
 function nextImg(){
   currentIndex = currentIndex +1 >= galleryList.length ? 0 : currentIndex+1;
   loadImage(galleryList[currentIndex]);
-  updateCounter(); // 切换图片更新数字
+  updateCounter();
 }
-// 关闭
 function closeGallery(){
   modal.classList.remove('show');
 }
-// 点击黑色背景关闭弹窗
 modal.addEventListener('click',(e)=>{
   if(e.target === modal) closeGallery();
 })
-// 键盘左右键切换图片
 document.addEventListener('keydown',(e)=>{
   if(!modal.classList.contains('show')) return;
   if(e.key === 'ArrowLeft') prevImg();
@@ -828,27 +868,16 @@ document.addEventListener('keydown',(e)=>{
   if(e.key === 'Escape') closeGallery();
 })
 
+const navBtns = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('.section-wrap');
 
-// ========== 标签筛选JS ==========
-// 获取所有筛选按钮、影片卡片
-const filterBtns = document.querySelectorAll('.tag-filter-btn');
-const movieCards = document.querySelectorAll('.movie-card');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', function () {
-    filterBtns.forEach(b => b.classList.remove('active'));
+navBtns.forEach(btn=>{
+  btn.addEventListener('click',function(){
+    navBtns.forEach(b=>b.classList.remove('active'));
     this.classList.add('active');
-    const selectTag = this.getAttribute('data-tag');
-
-    movieCards.forEach(card => {
-      const tagsStr = card.getAttribute('data-tags') || '';
-      const tagsArr = tagsStr.split(',');
-      if (selectTag === 'all' || tagsArr.includes(selectTag)) {
-        card.classList.remove('hide-card');
-      } else {
-        card.classList.add('hide-card');
-      }
-    })
+    const targetId = this.dataset.target;
+    sections.forEach(s=>s.classList.remove('show-section'));
+    document.getElementById(targetId).classList.add('show-section');
   })
 })
 </script></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By ATANMOSS</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.1.260810</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.1.260810"></script><script src="/js/main.js?v=5.7.1.260810"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.1.260810"></script></div></div></body></html>

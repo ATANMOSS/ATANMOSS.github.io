@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>平屋慢生活 | ATANMOSS</title><meta name="author" content="ATANMOSS"><meta name="copyright" content="ATANMOSS"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="平屋慢生活基础信息 导演： 上映年份： 类型：治愈｜日剧 豆瓣页面：豆瓣链接  个人观后感在这里写你的感想、台词摘抄、人物分析 个人评分★★★★★">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>平屋慢生活 | ATANMOSS</title><meta name="author" content="ATANMOSS"><meta name="copyright" content="ATANMOSS"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="平屋慢生活基础信息 导演： 上映年份： 类型：治愈｜日剧 豆瓣页面：豆瓣链接  个人观后感在这里写你的感想、台词摘抄、人物分析 个人评分★★★★★">
 <meta property="og:type" content="website">
 <meta property="og:title" content="平屋慢生活">
 <meta property="og:url" content="http://example.com/video/pingwu-man-shenghuo.html">
@@ -114,13 +114,13 @@
       const activateDarkMode = () => {
         document.documentElement.dataset.theme = 'dark'
         if (metaThemeColor !== null) {
-          metaThemeColor.setAttribute('content', '#1a1f1d')
+          metaThemeColor.setAttribute('content', 'undefined')
         }
       }
       const activateLightMode = () => {
         document.documentElement.dataset.theme = 'light'
         if (metaThemeColor !== null) {
-          metaThemeColor.setAttribute('content', 'ffffff')
+          metaThemeColor.setAttribute('content', 'undefined')
         }
       }
 
@@ -218,23 +218,29 @@
 }
 /* before遮罩层保留元素，背景透明 */
 #page-header.post-bg::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
+
+
+/* 页面卡片 #page 背景透明度 */
+#page {
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* 首页文章卡片背景，修改最后数字调节透明度 */
 #recent-posts .recent-post-item {
-  background: rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.85) !important;
   /* 完全透明就改成 rgba(255,255,255,0) */
 }
 
 /* 侧边栏全部卡片容器背景，修改末尾数字调节透明度 */
 #aside-content .card-widget {
-  background: rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0.85) !important;
 }
 
 /* 页脚footer背景【修复版】，修改末尾数字调节透明度 */
 #footer {
-  background: rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 #footer .footer-other {
   background: transparent !important;
@@ -246,7 +252,7 @@
 /* 👇这一行就是控制头部遮罩，直接修改rgba里面的数字 */
 /* 普通页面 */
 #page-header::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 /* 文章详情页 */
 #page-header.post-bg {
@@ -254,27 +260,27 @@
 }
 /* 文章详情页的头部遮罩 */
 #page-header.post-bg::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 
 /* =========新增代码，清除#page白色底色（书籍/影视清单页面）========= */
 main#content-inner.layout.hide-aside div#page {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(39, 136, 202,0.15) !important;
 }
 
 .movie-card{
 text-align: center;
 padding-bottom:12px;
 /* 卡片单独半透底色 */
-background:rgba(240, 246, 248, 0.35);
+background:rgba(245, 247, 250, 0.7);
 border-radius:8px;
 padding:8px;
 }
 
 /* =========文章post页面：#post 半透毛玻璃========= */
 main#content-inner.layout div#post {
-  background: rgba(255,255,255,0.45) !important;
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.85) !important;
+  /* backdrop-filter: blur(8px); */
   -webkit-backdrop-filter: blur(8px);
   border-radius:12px;
 }
@@ -291,8 +297,58 @@ main#content-inner.layout div#post {
   border: 1px solid #6096ba !important;
   border-radius:8px;
 }
+
+
+/* =========文章正文文字========= */
+#post #post-content p,
+#post #post-content li {
+  color: #0f2440 !important; /* 正文深色文字，适配半透白卡片 */
+}
+#post #post-content h1,#post #post-content h2,#post #post-content h3 {
+  color: #153058 !important;
+}
+
+/* =========版权声明框文字（截图上方那块版权区域）========= */
+#post .post-copyright .post-copyright-meta {
+  color: #153058 !important;
+}
+#post .post-copyright .post-copyright-info a {
+  color: #2057a0 !important;
+}
+#post .post-copyright .post-copyright-info {
+  color: #22406b !important;
+}
+
+/* =========上一篇/下一篇 模块文字========= */
+#post .pagination-post .prev-post .post-title,
+#post .pagination-post .next-post .post-title {
+  color: #ffffff !important;
+}
+#post .pagination-post .prev-post .label,
+#post .pagination-post .next-post .label {
+  color: #c8ddff !important;
+}
+
+/* =========相关推荐模块文字========= */
+#post .relatedPosts .relatedPosts-head {
+  color: #153058 !important;
+}
+#post .relatedPosts .related-post-card .post-title {
+  color: #ffffff !important;
+}
+#post .relatedPosts .related-post-card .post-date {
+  color: #d0e0ff !important;
+}
+
+/* =========文章顶部元信息（发布时间、分类、阅读时长）========= */
+#post-meta > div {
+  color: #ffffff !important;
+}
+#post-meta a {
+  color: #ffffff !important;
+}
 </style>
-<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/my3.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">平屋慢生活</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="平屋慢生活"><a href="#平屋慢生活" class="headerlink" title="平屋慢生活"></a>平屋慢生活</h1><h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><ul>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/cloud2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">平屋慢生活</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="平屋慢生活"><a href="#平屋慢生活" class="headerlink" title="平屋慢生活"></a>平屋慢生活</h1><h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><ul>
 <li>导演：</li>
 <li>上映年份：</li>
 <li>类型：治愈｜日剧</li>
@@ -303,7 +359,7 @@ main#content-inner.layout div#post {
 </div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ATANMOSS</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ATANMOSS"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:ATANMOSS@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/17/%E6%92%AD%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%96%B9%E6%B3%95/" title="我的第一篇博客文章">我的第一篇博客文章</a><time datetime="2026-09-17T01:38:39.000Z" title="发表于 2026-09-17 09:38:39">2026-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/17/hello-world/" title="Hello World">Hello World</a><time datetime="2026-09-17T01:35:04.867Z" title="发表于 2026-09-17 09:35:04">2026-09-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div>
           <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="card-category-list-name">博客搭建</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"><span class="card-category-list-name">测试文章</span><span class="card-category-list-count">1</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Butterfly%E4%B8%BB%E9%A2%98/" style="font-size: 1.1em; color: #999">Butterfly主题</a> <a href="/tags/%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2/" style="font-size: 1.1em; color: #999">开始界面</a> <a href="/tags/Hexo/" style="font-size: 1.5em; color: #99a9bf">Hexo</a></div></div><div class="card-widget card-archives">
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2/" style="font-size: 1.1em; color: #999">开始界面</a> <a href="/tags/Hexo/" style="font-size: 1.5em; color: #99a9bf">Hexo</a> <a href="/tags/Butterfly%E4%B8%BB%E9%A2%98/" style="font-size: 1.1em; color: #999">Butterfly主题</a></div></div><div class="card-widget card-archives">
     <div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div>
   
     <ul class="card-archive-list">
@@ -318,4 +374,4 @@ main#content-inner.layout div#post {
         </li>
       
     </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">73</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-09-20T08:21:25.648Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By ATANMOSS</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.1.260810</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.1.260810"></script><script src="/js/main.js?v=5.7.1.260810"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.1.260810"></script></div></div></body></html>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">73</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-09-20T09:45:15.630Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By ATANMOSS</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.1.260810</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.1.260810"></script><script src="/js/main.js?v=5.7.1.260810"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.1.260810"></script></div></div></body></html>

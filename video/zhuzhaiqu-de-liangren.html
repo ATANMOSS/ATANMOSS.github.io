@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>住宅区的两人 | ATANMOSS</title><meta name="author" content="ATANMOSS"><meta name="copyright" content="ATANMOSS"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="住宅区的两人基础信息 导演： 上映年份： 类型：治愈 | 日剧 豆瓣页面：豆瓣链接  个人观后感在这里写你的感想、台词摘抄、人物分析 个人评分★★★★★">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>住宅区的两人 | ATANMOSS</title><meta name="author" content="ATANMOSS"><meta name="copyright" content="ATANMOSS"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="住宅区的两人基础信息 导演： 上映年份： 类型：治愈 | 日剧 豆瓣页面：豆瓣链接  个人观后感在这里写你的感想、台词摘抄、人物分析 个人评分★★★★★">
 <meta property="og:type" content="website">
 <meta property="og:title" content="住宅区的两人">
 <meta property="og:url" content="http://example.com/video/zhuzhaiqu-de-liangren.html">
@@ -116,13 +116,13 @@
       const activateDarkMode = () => {
         document.documentElement.dataset.theme = 'dark'
         if (metaThemeColor !== null) {
-          metaThemeColor.setAttribute('content', '#1a1f1d')
+          metaThemeColor.setAttribute('content', 'undefined')
         }
       }
       const activateLightMode = () => {
         document.documentElement.dataset.theme = 'light'
         if (metaThemeColor !== null) {
-          metaThemeColor.setAttribute('content', 'ffffff')
+          metaThemeColor.setAttribute('content', 'undefined')
         }
       }
 
@@ -220,23 +220,29 @@
 }
 /* before遮罩层保留元素，背景透明 */
 #page-header.post-bg::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
+
+
+/* 页面卡片 #page 背景透明度 */
+#page {
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* 首页文章卡片背景，修改最后数字调节透明度 */
 #recent-posts .recent-post-item {
-  background: rgba(255,255,255,0.2) !important;
+  background: rgba(255,255,255,0.85) !important;
   /* 完全透明就改成 rgba(255,255,255,0) */
 }
 
 /* 侧边栏全部卡片容器背景，修改末尾数字调节透明度 */
 #aside-content .card-widget {
-  background: rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0.85) !important;
 }
 
 /* 页脚footer背景【修复版】，修改末尾数字调节透明度 */
 #footer {
-  background: rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 #footer .footer-other {
   background: transparent !important;
@@ -248,7 +254,7 @@
 /* 👇这一行就是控制头部遮罩，直接修改rgba里面的数字 */
 /* 普通页面 */
 #page-header::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 /* 文章详情页 */
 #page-header.post-bg {
@@ -256,27 +262,27 @@
 }
 /* 文章详情页的头部遮罩 */
 #page-header.post-bg::before {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(255,255,255,0) !important;
 }
 
 /* =========新增代码，清除#page白色底色（书籍/影视清单页面）========= */
 main#content-inner.layout.hide-aside div#page {
-  background: rgba(0,0,0,0.15) !important;
+  background: rgba(39, 136, 202,0.15) !important;
 }
 
 .movie-card{
 text-align: center;
 padding-bottom:12px;
 /* 卡片单独半透底色 */
-background:rgba(240, 246, 248, 0.35);
+background:rgba(245, 247, 250, 0.7);
 border-radius:8px;
 padding:8px;
 }
 
 /* =========文章post页面：#post 半透毛玻璃========= */
 main#content-inner.layout div#post {
-  background: rgba(255,255,255,0.45) !important;
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.85) !important;
+  /* backdrop-filter: blur(8px); */
   -webkit-backdrop-filter: blur(8px);
   border-radius:12px;
 }
@@ -293,8 +299,58 @@ main#content-inner.layout div#post {
   border: 1px solid #6096ba !important;
   border-radius:8px;
 }
+
+
+/* =========文章正文文字========= */
+#post #post-content p,
+#post #post-content li {
+  color: #0f2440 !important; /* 正文深色文字，适配半透白卡片 */
+}
+#post #post-content h1,#post #post-content h2,#post #post-content h3 {
+  color: #153058 !important;
+}
+
+/* =========版权声明框文字（截图上方那块版权区域）========= */
+#post .post-copyright .post-copyright-meta {
+  color: #153058 !important;
+}
+#post .post-copyright .post-copyright-info a {
+  color: #2057a0 !important;
+}
+#post .post-copyright .post-copyright-info {
+  color: #22406b !important;
+}
+
+/* =========上一篇/下一篇 模块文字========= */
+#post .pagination-post .prev-post .post-title,
+#post .pagination-post .next-post .post-title {
+  color: #ffffff !important;
+}
+#post .pagination-post .prev-post .label,
+#post .pagination-post .next-post .label {
+  color: #c8ddff !important;
+}
+
+/* =========相关推荐模块文字========= */
+#post .relatedPosts .relatedPosts-head {
+  color: #153058 !important;
+}
+#post .relatedPosts .related-post-card .post-title {
+  color: #ffffff !important;
+}
+#post .relatedPosts .related-post-card .post-date {
+  color: #d0e0ff !important;
+}
+
+/* =========文章顶部元信息（发布时间、分类、阅读时长）========= */
+#post-meta > div {
+  color: #ffffff !important;
+}
+#post-meta a {
+  color: #ffffff !important;
+}
 </style>
-<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/my3.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">住宅区的两人</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="住宅区的两人"><a href="#住宅区的两人" class="headerlink" title="住宅区的两人"></a>住宅区的两人</h1><h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><ul>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/cloud2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">住宅区的两人</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="住宅区的两人"><a href="#住宅区的两人" class="headerlink" title="住宅区的两人"></a>住宅区的两人</h1><h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><ul>
 <li>导演：</li>
 <li>上映年份：</li>
 <li>类型：治愈 | 日剧</li>
