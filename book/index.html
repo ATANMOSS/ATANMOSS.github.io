@@ -189,7 +189,110 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-color: #F3F5F3;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">📚 书籍阅读清单</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+}</script><style>
+/*文章标题居中 */
+#page-header .post-title {
+  text-align: center !important;
+}
+
+/* meta父容器设置flex居中，搞定两行元信息 */
+#post-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* ✅重点：post-info是绝对定位，放弃bottom，改用top控制上下 */
+#page-header.post-bg #post-info {
+  position: absolute !important;
+  top: 42% !important; /* 控制文字距离header顶部的百分比！ */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: auto !important; /* 取消原来钉在底部的设置！这一行必不可少 */
+  width:100% !important;
+}
+
+/* header本体背景透明 */
+#page-header.post-bg {
+  background: rgba(0,0,0,0) !important;
+}
+/* before遮罩层保留元素，背景透明 */
+#page-header.post-bg::before {
+  background: rgba(0,0,0,0.15) !important;
+}
+
+/* 首页文章卡片背景，修改最后数字调节透明度 */
+#recent-posts .recent-post-item {
+  background: rgba(255,255,255,0.2) !important;
+  /* 完全透明就改成 rgba(255,255,255,0) */
+}
+
+/* 侧边栏全部卡片容器背景，修改末尾数字调节透明度 */
+#aside-content .card-widget {
+  background: rgba(255,255,255,0.15) !important;
+}
+
+/* 页脚footer背景【修复版】，修改末尾数字调节透明度 */
+#footer {
+  background: rgba(255,255,255,0.15) !important;
+}
+#footer .footer-other {
+  background: transparent !important;
+}
+
+#page-header {
+  background: transparent !important;
+}
+/* 👇这一行就是控制头部遮罩，直接修改rgba里面的数字 */
+/* 普通页面 */
+#page-header::before {
+  background: rgba(0,0,0,0.15) !important;
+}
+/* 文章详情页 */
+#page-header.post-bg {
+  background: transparent !important;
+}
+/* 文章详情页的头部遮罩 */
+#page-header.post-bg::before {
+  background: rgba(0,0,0,0.15) !important;
+}
+
+/* =========新增代码，清除#page白色底色（书籍/影视清单页面）========= */
+main#content-inner.layout.hide-aside div#page {
+  background: rgba(0,0,0,0.15) !important;
+}
+
+.movie-card{
+text-align: center;
+padding-bottom:12px;
+/* 卡片单独半透底色 */
+background:rgba(240, 246, 248, 0.35);
+border-radius:8px;
+padding:8px;
+}
+
+/* =========文章post页面：#post 半透毛玻璃========= */
+main#content-inner.layout div#post {
+  background: rgba(255,255,255,0.45) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius:12px;
+}
+/* 清除#post里面子模块自带白底 */
+#post .post-copyright,
+#post .post-footer,
+#post .pagination-post,
+#post .relatedPosts{
+  background: transparent !important;
+  box-shadow:none !important;
+}
+/* 版权框 上边框颜色 */
+#post .post-copyright {
+  border: 1px solid #6096ba !important;
+  border-radius:8px;
+}
+</style>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/my3.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">📚 书籍阅读清单</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
 .book-card-wrap{
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(160px,1fr));

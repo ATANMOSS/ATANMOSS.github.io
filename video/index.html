@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/avatar.png">
 <meta property="article:published_time" content="2026-09-17T08:26:48.000Z">
-<meta property="article:modified_time" content="2026-09-18T07:02:28.389Z">
+<meta property="article:modified_time" content="2026-09-20T02:05:36.572Z">
 <meta property="article:author" content="ATANMOSS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/video/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.1.260810"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
@@ -189,7 +189,110 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-color: #F3F5F3;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">🎬 影视清单</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+}</script><style>
+/*文章标题居中 */
+#page-header .post-title {
+  text-align: center !important;
+}
+
+/* meta父容器设置flex居中，搞定两行元信息 */
+#post-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* ✅重点：post-info是绝对定位，放弃bottom，改用top控制上下 */
+#page-header.post-bg #post-info {
+  position: absolute !important;
+  top: 42% !important; /* 控制文字距离header顶部的百分比！ */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: auto !important; /* 取消原来钉在底部的设置！这一行必不可少 */
+  width:100% !important;
+}
+
+/* header本体背景透明 */
+#page-header.post-bg {
+  background: rgba(0,0,0,0) !important;
+}
+/* before遮罩层保留元素，背景透明 */
+#page-header.post-bg::before {
+  background: rgba(0,0,0,0.15) !important;
+}
+
+/* 首页文章卡片背景，修改最后数字调节透明度 */
+#recent-posts .recent-post-item {
+  background: rgba(255,255,255,0.2) !important;
+  /* 完全透明就改成 rgba(255,255,255,0) */
+}
+
+/* 侧边栏全部卡片容器背景，修改末尾数字调节透明度 */
+#aside-content .card-widget {
+  background: rgba(255,255,255,0.15) !important;
+}
+
+/* 页脚footer背景【修复版】，修改末尾数字调节透明度 */
+#footer {
+  background: rgba(255,255,255,0.15) !important;
+}
+#footer .footer-other {
+  background: transparent !important;
+}
+
+#page-header {
+  background: transparent !important;
+}
+/* 👇这一行就是控制头部遮罩，直接修改rgba里面的数字 */
+/* 普通页面 */
+#page-header::before {
+  background: rgba(0,0,0,0.15) !important;
+}
+/* 文章详情页 */
+#page-header.post-bg {
+  background: transparent !important;
+}
+/* 文章详情页的头部遮罩 */
+#page-header.post-bg::before {
+  background: rgba(0,0,0,0.15) !important;
+}
+
+/* =========新增代码，清除#page白色底色（书籍/影视清单页面）========= */
+main#content-inner.layout.hide-aside div#page {
+  background: rgba(0,0,0,0.15) !important;
+}
+
+.movie-card{
+text-align: center;
+padding-bottom:12px;
+/* 卡片单独半透底色 */
+background:rgba(240, 246, 248, 0.35);
+border-radius:8px;
+padding:8px;
+}
+
+/* =========文章post页面：#post 半透毛玻璃========= */
+main#content-inner.layout div#post {
+  background: rgba(255,255,255,0.45) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius:12px;
+}
+/* 清除#post里面子模块自带白底 */
+#post .post-copyright,
+#post .post-footer,
+#post .pagination-post,
+#post .relatedPosts{
+  background: transparent !important;
+  box-shadow:none !important;
+}
+/* 版权框 上边框颜色 */
+#post .post-copyright {
+  border: 1px solid #6096ba !important;
+  border-radius:8px;
+}
+</style>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/my3.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">ATANMOSS</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-star"></i><span> 兴趣</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/book/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">🎬 影视清单</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
 /* 加宽当前页面容器（针对本页面无侧边栏） */
 .layout-hide-aside #page {
   max-width: 1100px !important;
@@ -203,6 +306,14 @@
   margin-top:30px;
   margin-bottom:40px;
 }
+/* 综艺专用网格，横向卡片，最小宽度更大 */
+.movie-card-wrap.horiz-wrap{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap:24px;
+  margin-top:30px;
+  margin-bottom:40px;
+}
 .movie-card{
   text-align:center;
   padding-bottom:12px;
@@ -212,16 +323,21 @@
 }
 .movie-card img{
   width:100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 2 / 3; /* 默认：影视竖向海报 */
   object-fit: cover;
   border-radius:8px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
   transition: all 0.25s ease;
 }
+/* 新增：综艺横向卡片 */
+.movie-card.is-horiz img{
+  aspect-ratio: 16 / 9; /* 综艺横向16比9 */
+}
 .movie-card img:hover{
   transform: scale(1.04);
   box-shadow: 0 4px 20px rgba(0,0,0,0.20);
 }
+
 /* 片名样式 */
 .movie-name{
   margin:10px 0 6px;
@@ -351,6 +467,19 @@
   font-size:18px;
   z-index:10000;
 }
+/* ========== 影视清单页面毛玻璃【新】 ========== */
+.layout-hide-aside#content-inner {
+  background: rgba(255,255,255,0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius:16px !important;
+}
+.layout-hide-aside#content-inner #page {
+  background: transparent !important;
+}
+.layout-hide-aside#content-inner #page .page-content {
+  background: transparent !important;
+}
 </style>
 <!-- 【切片器：标签筛选按钮区域】 -->
 <div class="tag-filter-wrap">
@@ -359,11 +488,14 @@
   <button class="tag-filter-btn" data-tag="日剧">日剧</button>
   <button class="tag-filter-btn" data-tag="剧情">剧情</button>
   <button class="tag-filter-btn" data-tag="英剧">英剧</button>
+  <!-- 新增综艺筛选按钮 -->
+  <button class="tag-filter-btn" data-tag="综艺">综艺</button>
 </div>
 
 
 <div class="section-wrap">
 <h2>✅ 已看完</h2>
+<h3>剧集</h3>
 <div class="movie-card-wrap">
   <!-- 卡片增加 data-tags 标签，多个英文逗号分隔 -->
   <div class="movie-card" data-tags="治愈,日剧">
@@ -481,6 +613,98 @@
   </div>
 </div>
 
+<!-- 新增综艺板块，独立横向网格 -->
+<h3>综艺</h3>
+<div class="movie-card-wrap horiz-wrap">
+  <div class="movie-card is-horiz" data-tags="综艺">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/xiayigeshishei_1.1.jpg"
+    ]'>
+      <img src="/img/xiayigeshishei_1.1.jpg" alt="下一个是谁 第一季">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://www.bilibili.com/video/BV1CQ4y1f7dA/">下一个是谁 第一季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/xiayigeshishei_1/">★★★★★</a>
+    </div>
+  </div>
+
+  <div class="movie-card is-horiz" data-tags="综艺">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/xiayigeshishei_2.1.jpg"
+    ]'>
+      <img src="/img/xiayigeshishei_2.1.jpg" alt="下一个是谁 第二季">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://www.bilibili.com/video/BV1eL4y1z7ZY/">下一个是谁 第二季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/xiayigeshishei_2/">★★★★★</a>
+    </div>
+  </div>
+
+  <div class="movie-card is-horiz" data-tags="综艺">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/xiayigeshishei_3.1.jpg"
+    ]'>
+      <img src="/img/xiayigeshishei_3.1.jpg" alt="下一个是谁 第三季">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://www.bilibili.com/video/BV1QT4y1e79k/">下一个是谁 第三季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/xiayigeshishei_3/">★★★★★</a>
+    </div>
+  </div>
+
+  <div class="movie-card is-horiz" data-tags="综艺">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/xiayigeshishei_4.1.jpg"
+    ]'>
+      <img src="/img/xiayigeshishei_4.1.jpg" alt="下一个是谁 第四季">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://www.bilibili.com/video/BV128411G7by/">下一个是谁 第四季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/xiayigeshishei_4/">★★★★★</a>
+    </div>
+  </div>
+
+  <div class="movie-card is-horiz" data-tags="综艺">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/xiayigeshishei_5.1.jpg"
+    ]'>
+      <img src="/img/xiayigeshishei_5.1.jpg" alt="下一个是谁 第五季">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://www.bilibili.com/video/BV1QfgNzCEcm/">下一个是谁 第五季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/xiayigeshishei_5/">★★★★★</a>
+    </div>
+  </div>
+
+  <div class="movie-card is-horiz" data-tags="综艺">
+    <div class="movie-img-box" onclick="openGallery(this)" data-imgs='[
+      "/img/xiayigeshishei_6.1.jpg"
+    ]'>
+      <img src="/img/xiayigeshishei_6.1.jpg" alt="下一个是谁 第六季">
+    </div>
+    <div class="movie-name">
+      <a target="_blank" href="https://www.bilibili.com/video/BV1QfgNzCEcm/">下一个是谁 第六季</a>
+    </div>
+    <div class="movie-star">
+      <a href="/video/xiayigeshishei_6/">★★★★★</a>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
 
 <div class="section-wrap">
 <h2>▶️ 在看</h2>
@@ -552,15 +776,26 @@ function openGallery(el){
 }
 
 // 加载图片，JS控制缩放
+// 加载图片，JS控制缩放（限制最大宽高）
 function loadImage(src){
   const img = new Image();
   img.src = src;
   img.onload = function(){
-    // 固定目标高度 95vh
-    const targetH = window.innerHeight * 0.95;
-    const scale = targetH / img.height;
+    // 最大高度：屏幕85%；最大宽度：800px
+    const maxH = window.innerHeight * 0.85;
+    const maxW = 800;
+    // 计算缩放比例
+    let scale = 1;
+    // 高度缩放
+    if(img.height > maxH){
+      scale = maxH / img.height;
+    }
+    // 如果按高度缩放后宽度依然超过maxW，再用宽度限制
+    if(img.width * scale > maxW){
+      scale = maxW / img.width;
+    }
     modalImg.style.width = (img.width * scale)+"px";
-    modalImg.style.height = targetH +"px";
+    modalImg.style.height = (img.height * scale)+"px";
     modalImg.src = src;
   }
 }
@@ -594,11 +829,10 @@ document.addEventListener('keydown',(e)=>{
 })
 
 
-// ========== 原有的标签筛选JS（保留不变） ==========
+// ========== 标签筛选JS ==========
 // 获取所有筛选按钮、影片卡片
 const filterBtns = document.querySelectorAll('.tag-filter-btn');
 const movieCards = document.querySelectorAll('.movie-card');
-const sectionWraps = document.querySelectorAll('.section-wrap');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', function () {
@@ -613,16 +847,6 @@ filterBtns.forEach(btn => {
         card.classList.remove('hide-card');
       } else {
         card.classList.add('hide-card');
-      }
-    })
-
-    sectionWraps.forEach(section => {
-      const cardsInSection = section.querySelectorAll('.movie-card');
-      const visibleCards = Array.from(cardsInSection).filter(c => !c.classList.contains('hide-card'));
-      if(visibleCards.length === 0){
-        section.classList.add('hide-section');
-      }else{
-        section.classList.remove('hide-section');
       }
     })
   })
