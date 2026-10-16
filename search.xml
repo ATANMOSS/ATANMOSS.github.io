@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title>提取视频封面</title>
+      <link href="//posts/%E6%8F%90%E5%8F%96%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2/"/>
+      <url>//posts/%E6%8F%90%E5%8F%96%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="B站"><a href="#B站" class="headerlink" title="B站"></a>B站</h1><h2 id="单个提取"><a href="#单个提取" class="headerlink" title="单个提取"></a>单个提取</h2><p>F12→Ctrl+F检索</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">og:image</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta data-vue-meta=&quot;true&quot; property=&quot;og:image&quot; content=&quot;https://i1.hdslb.com/bfs/archive/1ada2c6794242fb590125b2d4817cb55cb60c9d0.jpg@1200w_630h&quot;&gt;</span><br><span class="line">↓</span><br><span class="line">https://i1.hdslb.com/bfs/archive/1ada2c6794242fb590125b2d4817cb55cb60c9d0.jpg</span><br></pre></td></tr></table></figure><p>![[Pasted image 20261016104833.png]]</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bdown cover BV1zg411777p -o &quot;G:\下一个是谁\S1&quot;</span><br></pre></td></tr></table></figure><h2 id="批量提取"><a href="#批量提取" class="headerlink" title="批量提取"></a>批量提取</h2><h3 id="方法一：-bilibilidown-cli"><a href="#方法一：-bilibilidown-cli" class="headerlink" title="方法一：# bilibilidown-cli"></a>方法一：# bilibilidown-cli</h3><p><a href="https://www.npmjs.com/package/bilibilidown-cli#1">bilibilidown-cli - npm</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bdown batch &quot;G:\下一个是谁\urls.txt&quot; -o &quot;G:\下一个是谁&quot; --with cover</span><br></pre></td></tr></table></figure><h3 id="批量移动"><a href="#批量移动" class="headerlink" title="批量移动"></a><strong>批量移动</strong></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> /r &quot;G:\下一个是谁&quot; %f <span class="keyword">in</span> (*.jpg) <span class="keyword">do</span> <span class="built_in">move</span> &quot;%f&quot; &quot;G:\下一个是谁\S&quot;</span><br></pre></td></tr></table></figure><ul><li><code>for /r &quot;G:\下一个是谁&quot;</code>：<code>for</code> 是循环指令。<code>/r</code> 代表“递归（Recursive）”，意思是不仅找当前文件夹，还要钻到它里面的 <code>001</code>、<code>002</code>… 等所有子文件夹里去搜索。搜索的起点是 <code>&quot;G:\下一个是谁&quot;</code>。</li><li><code>%f</code>：这是一个<strong>临时变量</strong>。你可以把它当成一个“搬运工”，电脑每找到一张图片，就会把它临时起名叫 <code>%f</code>。</li><li><code>in (*.jpg)</code>：这是<strong>筛选条件</strong>。意思是只找后缀名是 <code>.jpg</code> 的文件（图片），其他的文档、视频等不要动。</li><li><code>do move &quot;%f&quot; &quot;G:\下一个是谁\S1&quot;</code>：这是<strong>执行动作</strong>。对每一张被找到的图片，执行 <code>move</code>（移动）命令。把图片 <code>&quot;%f&quot;</code>（含完整路径）搬到目标文件夹 <code>&quot;G:\下一个是谁\S1&quot;</code> 里。</li></ul><p>CMD 自带的 <code>tree</code> 命令，它专门用来展示文件夹结构</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tree</span> &quot;G:\下一个是谁&quot; /f</span><br></pre></td></tr></table></figure><p>![[Pasted image 20261016114123.png]]</p><h3 id="方法二：Python"><a href="#方法二：Python" class="headerlink" title="方法二：Python"></a>方法二：Python</h3><p>AI爬取BV号<br>![[Pasted image 20261016150404.png]]</p><p>Python实现批量下载重命名</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os  </span><br><span class="line"><span class="keyword">import</span> re  </span><br><span class="line"><span class="keyword">import</span> requests  </span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># ================= 配置区域 =================# 你的这些 txt 文件所在的文件夹  </span></span><br><span class="line">base_dir = <span class="string">r&quot;G:\下一个是谁&quot;</span>  </span><br><span class="line"><span class="comment"># ============================================  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 中文数字到阿拉伯数字的映射（用于生成 S1, S2 文件夹）  </span></span><br><span class="line">cn_num_map = &#123;<span class="string">&#x27;一&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;二&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;三&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;四&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;五&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;六&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;七&#x27;</span>: <span class="number">7</span>&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># B站请求头 (极其重要！缺少 Referer 会被B站拒绝下载)  </span></span><br><span class="line">headers = &#123;  </span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&#x27;</span>,  </span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://www.bilibili.com/&#x27;</span>  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 1. 遍历文件夹，找到所有带有“季 BV号.txt”的文件  </span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> os.listdir(base_dir):  </span><br><span class="line">    <span class="keyword">if</span> filename.endswith(<span class="string">&#x27;.txt&#x27;</span>) <span class="keyword">and</span> <span class="string">&#x27;季 BV号&#x27;</span> <span class="keyword">in</span> filename:  </span><br><span class="line">        <span class="comment"># 识别是第几季  </span></span><br><span class="line">        <span class="keyword">match</span> = re.search(<span class="string">r&#x27;第(.+?)季&#x27;</span>, filename)  </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">match</span>:  </span><br><span class="line">            <span class="keyword">continue</span>  </span><br><span class="line">  </span><br><span class="line">        season_cn = <span class="keyword">match</span>.group(<span class="number">1</span>)  <span class="comment"># 比如 &quot;一&quot;  </span></span><br><span class="line">        season_num = cn_num_map.get(season_cn)  <span class="comment"># 转换成 1  </span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> season_num:  </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;⚠️ 无法识别季数: <span class="subst">&#123;filename&#125;</span>&quot;</span>)  </span><br><span class="line">            <span class="keyword">continue</span>  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 设定这一季的输出文件夹，例如 G:\下一个是谁\S1  </span></span><br><span class="line">        output_dir = os.path.join(base_dir, <span class="string">f&quot;S<span class="subst">&#123;season_num&#125;</span>&quot;</span>)  </span><br><span class="line">        os.makedirs(output_dir, exist_ok=<span class="literal">True</span>)  </span><br><span class="line">  </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;\n==========================================&quot;</span>)  </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;📂 正在处理: <span class="subst">&#123;filename&#125;</span>  -&gt;  目标文件夹: S<span class="subst">&#123;season_num&#125;</span>&quot;</span>)  </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;==========================================&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">        <span class="comment"># 2. 读取 txt 内容，放入列表  </span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(base_dir, filename), <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:  </span><br><span class="line">            lines = f.readlines()  </span><br><span class="line">  </span><br><span class="line">        ep_count = <span class="number">1</span>  <span class="comment"># 计数器，用于生成 EP01, EP02  </span></span><br><span class="line">        <span class="comment"># 3. 遍历列表，提取 BV 号  </span></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:  </span><br><span class="line">            line = line.strip()  </span><br><span class="line">  </span><br><span class="line">            <span class="comment"># 跳过空行和以 # 开头的注释行（你精心写的“# 正片第一期”）  </span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> line <span class="keyword">or</span> line.startswith(<span class="string">&#x27;#&#x27;</span>):  </span><br><span class="line">                <span class="keyword">continue</span>  </span><br><span class="line">  </span><br><span class="line">            bvid = line  </span><br><span class="line">  </span><br><span class="line">            <span class="comment"># 4. 调用B站API获取视频信息  </span></span><br><span class="line">            <span class="keyword">try</span>:  </span><br><span class="line">                api_url = <span class="string">f&quot;https://api.bilibili.com/x/web-interface/view?bvid=<span class="subst">&#123;bvid&#125;</span>&quot;</span>  </span><br><span class="line">                res = requests.get(api_url, headers=headers, timeout=<span class="number">10</span>).json()  </span><br><span class="line">  </span><br><span class="line">                <span class="keyword">if</span> res[<span class="string">&#x27;code&#x27;</span>] == <span class="number">0</span>:  </span><br><span class="line">                    title = res[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;title&#x27;</span>]  </span><br><span class="line">                    <span class="comment"># 提取高清封面原图  </span></span><br><span class="line">                    pic_url = res[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;pic&#x27;</span>].split(<span class="string">&#x27;@&#x27;</span>)[<span class="number">0</span>]  </span><br><span class="line">  </span><br><span class="line">                    <span class="comment"># 重命名规则：按读取顺序递增（防止标题里没有规律）  </span></span><br><span class="line">                    new_filename = <span class="string">f&quot;EP<span class="subst">&#123;ep_count:02d&#125;</span>.jpg&quot;</span>  </span><br><span class="line">                    filepath = os.path.join(output_dir, new_filename)  </span><br><span class="line">  </span><br><span class="line">                    <span class="comment"># 5. 下载图片  </span></span><br><span class="line">                    img_data = requests.get(pic_url, headers=headers, timeout=<span class="number">10</span>).content  </span><br><span class="line">                    <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> img_file:  </span><br><span class="line">                        img_file.write(img_data)  </span><br><span class="line">  </span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">f&quot;✅ 成功: <span class="subst">&#123;new_filename&#125;</span>  &lt;-  <span class="subst">&#123;title&#125;</span>&quot;</span>)  </span><br><span class="line">                    ep_count += <span class="number">1</span>  </span><br><span class="line">  </span><br><span class="line">                <span class="keyword">else</span>:  </span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">f&quot;❌ API报错: <span class="subst">&#123;bvid&#125;</span>, 信息: <span class="subst">&#123;res[<span class="string">&#x27;message&#x27;</span>]&#125;</span>&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:  </span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;❌ 网络请求出错: <span class="subst">&#123;bvid&#125;</span>, 错误: <span class="subst">&#123;e&#125;</span>&quot;</span>)  </span><br><span class="line">  </span><br><span class="line">            <span class="comment"># 稍微停顿一下，防止请求过快被B站限制  </span></span><br><span class="line">            time.sleep(<span class="number">1.5</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n🎉 所有季度的封面下载完毕！请去各个 S 文件夹里查看。&quot;</span>)</span><br></pre></td></tr></table></figure><h1 id="油管"><a href="#油管" class="headerlink" title="油管"></a>油管</h1><h2 id="方法一：直接修改网址（最快，无需工具）"><a href="#方法一：直接修改网址（最快，无需工具）" class="headerlink" title="方法一：直接修改网址（最快，无需工具）"></a>方法一：直接修改网址（最快，无需工具）</h2><p>YouTube 的每个视频都有一个唯一的 <strong>视频 ID</strong>（也就是网址里 <code>v=</code> 后面的那串字符）。</p><p><strong>视频链接示例：</strong><br><code>https://www.youtube.com/watch?v=**dQw4w9WgXcQ**</code><br>这里的 <code>dQw4w9WgXcQ</code> 就是视频 ID。</p><p>你只需要套用以下公式，把 ID 替换进去，就能得到不同清晰度的封面：</p><ul><li><p><strong>最高画质（推荐）</strong>：<code>https://img.youtube.com/vi/视频ID/maxresdefault.jpg</code><br>  <em>(例：<code>https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg</code>)</em></p></li><li><p><strong>标准画质（兼容性最好）</strong>：<code>https://img.youtube.com/vi/视频ID/hqdefault.jpg</code></p></li><li><p><strong>低画质</strong>：<code>https://img.youtube.com/vi/视频ID/mqdefault.jpg</code></p></li></ul><p><strong>操作步骤：</strong> 复制这个拼好的链接，直接粘贴到浏览器地址栏回车，右键图片“另存为”即可。</p><p>![[Pasted image 20261016084734.png]]</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 提取视频封面 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>住宅区的两人</title>
+      <link href="//posts/Sherlock%20Season_2/"/>
+      <url>//posts/Sherlock%20Season_2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>住宅区的两人</title>
       <link href="//posts/Gotham%20Season%201/"/>
       <url>//posts/Gotham%20Season%201/</url>
@@ -31,45 +63,6 @@
     
     <entry>
       <title>住宅区的两人</title>
-      <link href="//posts/Sherlock%20Season_3/"/>
-      <url>//posts/Sherlock%20Season_3/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>住宅区的两人</title>
-      <link href="//posts/Sherlock%20Season_2/"/>
-      <url>//posts/Sherlock%20Season_2/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>住宅区的两人</title>
-      <link href="//posts/Sherlock%20Season_4/"/>
-      <url>//posts/Sherlock%20Season_4/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>住宅区的两人</title>
       <link href="//posts/The%20Shawshank%20Redemption/"/>
       <url>//posts/The%20Shawshank%20Redemption/</url>
       
@@ -85,6 +78,32 @@
       <title>平屋慢生活</title>
       <link href="//posts/ping-wu-man-sheng-huo/"/>
       <url>//posts/ping-wu-man-sheng-huo/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>住宅区的两人</title>
+      <link href="//posts/Sherlock%20Season_3/"/>
+      <url>//posts/Sherlock%20Season_3/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>住宅区的两人</title>
+      <link href="//posts/Sherlock%20Season_4/"/>
+      <url>//posts/Sherlock%20Season_4/</url>
       
         <content type="html"><![CDATA[]]></content>
       
